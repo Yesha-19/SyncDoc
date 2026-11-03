@@ -1,0 +1,71 @@
+High-level architecture       ✅
+        ↓
+Repository structure           ✅
+        ↓
+Languages + technologies ✅
+        ↓
+Important files
+        ↓
+Code flow
+        ↓
+Yjs + CRDT
+        ↓
+Complete end-to-end flow
+        ↓
+You can explain the project without Claude
+
+CURRENT
+↓
+Understand DocSync
+↓
+Understand every important file
+↓
+Understand Yjs/CRDT
+↓
+Run + test all existing features
+↓
+Rebuild/explain major flows yourself
+↓
+        ┌─────────────────┐
+        │  YOUR EXTENSIONS │
+        └─────────────────┘
+                 ↓
+          Authentication
+                 ↓
+             Database
+                 ↓
+        Document persistence
+                 ↓
+          Version/history
+                 ↓
+         Download/export
+                 ↓
+       Sharing/permissions
+                 ↓
+          Polish + testing
+
+
+Frontend
+
+done src/main.tsx — application entry point
+done src/App.tsx — routing
+done src/pages/Register.tsx — create/join room + first WebSocket connection
+done src/pages/DocumentEditor.tsx — main/core file
+done src/middleware/ProtectedRouter.tsx — route protection
+done src/atoms/userAtom.ts — user/room state
+done src/atoms/socketAtom.ts — application WebSocket state
+done src/atoms/connectedUsersAtom.ts — presence state
+done src/components/ChatWindow.tsx — chat
+done src/components/UsersList.tsx — presence UI
+
+Backend
+11. src/index.ts — main backend file
+12. src/routers/router.ts — WebSocket message handling
+
+🟡 Understand at a basic level
+src/pages/Home.tsx
+src/utils/monacoSnippets.ts
+src/components/FadedGrid.tsx
+src/components/ui/* — reusable UI components
+index.html
+
