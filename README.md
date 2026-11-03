@@ -1,95 +1,116 @@
-<<<<<<< HEAD
 # DocSync
 
-> **DocSync** is a lightning-fast, real-time collaborative document editor. Think of it as a lightweight Google Docs built for instant collaboration, featuring a clean interface, live user presence tracking, and an integrated real-time chat. 
+> **DocSync** is a lightning-fast, real-time collaborative document editor. Think of it as a lightweight Google Docs built for instant collaboration, featuring a clean interface, live user presence tracking, and integrated real-time chat.
 
 ---
 
 ## 🧐 What exactly does DocSync do?
 
-DocSync solves the problem of heavy, slow, or over-complicated document editors by providing a **frictionless collaborative workspace**. 
+DocSync provides a frictionless collaborative workspace where multiple users can create and edit documents simultaneously.
 
-1. **Instant Workspaces:** You don't need to create an account, log in, or navigate complex permissions. You simply click "Create new room".
-2. **Share & Write:** You are given a unique Room Code. Send this code to your friends or teammates.
-3. **Perfect Synchronization:** As soon as they join, you can all type in the exact same document at the exact same time. If you type a word, it appears on their screen in milliseconds.
-4. **Side-by-side Communication:** Instead of switching back and forth between Slack/Discord and your document, DocSync has a built-in group chat right next to the text editor.
+1. **Instant Workspaces:** Create a room without requiring an account or login.
+2. **Share & Write:** Get a unique Room Code and share it with collaborators.
+3. **Real-Time Synchronization:** Everyone can edit the same document simultaneously.
+4. **Integrated Communication:** Chat with collaborators alongside the document editor.
 
-DocSync guarantees that **everyone is always looking at the exact same text**, handling all the complicated math of merging concurrent edits in the background using CRDTs (Conflict-free Replicated Data Types).
+DocSync uses CRDTs (Conflict-free Replicated Data Types) to handle concurrent edits and maintain document consistency.
 
 ---
 
 ## ✨ Key Features
 
-- ⚡ **Frictionless Real-Time Editing:** Multiple users can write, edit, and delete text in the same document simultaneously without locking or freezing.
-- 👥 **Live Presence Tracking:** A dedicated "Users" panel shows you exactly who is currently online and active in your room.
-- 💬 **Integrated Group Chat:** Discuss ideas, drop image attachments, and communicate seamlessly in a chat window that sits right alongside your document.
-- 🔗 **Zero-Setup Sharing:** No user accounts or passwords required. Just share a randomly generated room code to invite collaborators.
-- 🧠 **Conflict-Free State (CRDT):** Powered by **Yjs**, DocSync mathematically resolves typing conflicts so the document never gets corrupted, even if two people type on the same line at the same time.
-- 🎨 **Modern, Distraction-Free UI:** Built with Tailwind CSS and Framer Motion for a dark-mode, calming, and highly responsive user experience.
+- ⚡ **Real-Time Editing:** Multiple users can edit the same document simultaneously without locking.
+- 👥 **Live Presence Tracking:** See who is currently online in your room.
+- 💬 **Integrated Group Chat:** Communicate through a built-in chat with image attachments.
+- 🔗 **Easy Room Sharing:** Invite collaborators using a randomly generated room code.
+- 🧠 **Conflict-Free Synchronization:** Powered by Yjs and CRDTs to handle concurrent edits.
+- 🎨 **Modern UI:** Responsive dark-mode interface built with Tailwind CSS and Framer Motion.
 
 ---
 
 ## 🏗️ Architecture
 
-DocSync is a monorepo containing two main parts:
+DocSync is organized into two main applications:
 
-1. **Frontend (`apps/frontend`)**: A React application (built with Vite) that provides the user interface, the editor, the chat, and the presence UI.
-2. **Backend (`apps/websocket-server`)**: A Node.js backend that runs two extremely fast WebSocket servers:
-   - **Port 5000**: Handles routing for user presence, joining/leaving rooms, and real-time chat delivery using an efficient in-memory broadcast system.
-   - **Port 5001**: A dedicated Yjs WebSocket server (`y-websocket`) specifically tuned to manage the CRDT document synchronization.
+1. **Frontend (`apps/frontend`)**: A React application built with Vite that provides the editor, chat, and presence interface.
+2. **Backend (`apps/websocket-server`)**: A Node.js backend running two WebSocket servers:
+   - **Port 5000:** Handles room management, user presence, and real-time chat.
+   - **Port 5001:** Runs the Yjs WebSocket server (`y-websocket`) for collaborative document synchronization.
 
 ### Tech Stack
-- **Frontend**: React, TypeScript, Vite, Tailwind CSS, Recoil, Framer Motion
-- **Backend**: Node.js, WebSockets (`ws`), `y-websocket`
-- **Collaboration Engine**: Yjs (CRDT)
+
+- **Frontend:** React, TypeScript, Vite, Tailwind CSS, Recoil, Framer Motion
+- **Backend:** Node.js, WebSockets (`ws`), `y-websocket`
+- **Collaboration Engine:** Yjs (CRDT)
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or higher recommended)
 
 ### Installation
 
-1. Clone the repository and install dependencies from the root directory:
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Yesha-19/SyncDoc.git
+   cd SyncDoc
+   ```
+
+2. Install dependencies from the project root:
+
    ```bash
    npm install
    ```
 
-2. Configure Environment Variables:
-   
-   **Frontend** (`apps/frontend/.env.local`):
+3. Configure environment variables.
+
+   **Frontend (`apps/frontend/.env.local`):**
+
    ```env
    VITE_WEBSOCKET_SERVER_URL=ws://localhost:5000
    VITE_YJS_SERVER_URL=ws://localhost:5001
    ```
 
-   **Backend** (`apps/websocket-server/.env`):
+   **Backend (`apps/websocket-server/.env`):**
+
    ```env
    PORT=5000
    ```
 
 ### Running Locally
 
-You will need two terminal windows to run both the backend and the frontend simultaneously.
+Open two terminal windows.
 
-**Terminal 1 (Start the Backend)**:
+**Terminal 1 – Start the Backend:**
+
 ```bash
 cd apps/websocket-server
 npm run dev
 ```
 
-**Terminal 2 (Start the Frontend)**:
+**Terminal 2 – Start the Frontend:**
+
 ```bash
 cd apps/frontend
 npm run dev
 ```
 
-### Try it out!
-Open your browser and navigate to `http://localhost:5173`. 
-To see the real-time collaboration in action, open a second tab or window, join the same room, and start typing!
-=======
-# SyncDoc
-A real-time collaborative document editor that enables multiple users to create, edit, and manage documents simultaneously with live synchronization.
->>>>>>> 67f45e428fc28d29856b3476cff4cfd88cb21c3b
+### Try It Out!
+
+Open your browser at:
+
+http://localhost:5173
+
+Open a second browser tab or window, join the same room, and test real-time collaboration.
+
+---
+
+## 📌 Future Improvements
+
+- Document persistence and version history.
+- User authentication and access control.
+- Improved collaboration and sharing features.
