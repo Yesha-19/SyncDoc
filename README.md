@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DocSync
 
 > **DocSync** is a lightning-fast, real-time collaborative document editor. Think of it as a lightweight Google Docs built for instant collaboration, featuring a clean interface, live user presence tracking, and an integrated real-time chat. 
@@ -88,3 +89,7 @@ npm run dev
 ### Try it out!
 Open your browser and navigate to `http://localhost:5173`. 
 To see the real-time collaboration in action, open a second tab or window, join the same room, and start typing!
+=======
+# SyncDoc
+A real-time collaborative document editor that enables multiple users to create, edit, and manage documents simultaneously with live synchronization.
+>>>>>>> 67f45e428fc28d29856b3476cff4cfd88cb21c3b
